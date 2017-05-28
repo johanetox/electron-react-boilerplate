@@ -57,11 +57,9 @@ export default merge.smart(baseConfig, {
           options: {
             cacheDirectory: true,
             plugins: [
-              'react-hot-loader/babel',
-              ['flow-runtime', {
-                assert: true,
-                annotate: true
-              }]
+              // Here, we include babel plugins that are only required for the
+              // renderer process.
+              'react-hot-loader/babel'
             ],
           }
         }
