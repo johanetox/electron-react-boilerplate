@@ -2,13 +2,13 @@
  * Builds the DLL for development electron renderer process
  */
 
-import webpack from 'webpack';
-import path from 'path';
-import merge from 'webpack-merge';
-import baseConfig from './webpack.config.base';
-import { dependencies } from './package.json';
+import webpack from 'webpack'
+import path from 'path'
+import merge from 'webpack-merge'
+import baseConfig from './webpack.config.base'
+import { dependencies } from './package.json'
 
-const dist = path.resolve(process.cwd(), 'dll');
+const dist = path.resolve(process.cwd(), 'dll')
 
 export default merge.smart(baseConfig, {
   context: process.cwd(),
@@ -19,10 +19,6 @@ export default merge.smart(baseConfig, {
 
   externals: ['fsevents', 'crypto-browserify'],
 
-  /**
-   * @HACK: Copy and pasted from renderer dev config. Consider merging these
-   *        rules into the base config. May cause breaking changes.
-   */
   module: {
     rules: [
       {
@@ -202,4 +198,4 @@ export default merge.smart(baseConfig, {
       },
     })
   ],
-});
+})

@@ -7,19 +7,19 @@
  * https://webpack.js.org/concepts/hot-module-replacement/
  */
 
-import path from 'path';
-import fs from 'fs';
-import webpack from 'webpack';
-import chalk from 'chalk';
-import merge from 'webpack-merge';
-import { spawn, execSync } from 'child_process';
-import ExtractTextPlugin from 'extract-text-webpack-plugin';
-import baseConfig from './webpack.config.base';
+import path from 'path'
+import fs from 'fs'
+import webpack from 'webpack'
+import chalk from 'chalk'
+import merge from 'webpack-merge'
+import { spawn, execSync } from 'child_process'
+import ExtractTextPlugin from 'extract-text-webpack-plugin'
+import baseConfig from './webpack.config.base'
 
-const port = process.env.PORT || 1212;
-const publicPath = `http://localhost:${port}/dist`;
-const dll = path.resolve(process.cwd(), 'dll');
-const manifest = path.resolve(dll, 'vendor.json');
+const port = process.env.PORT || 1212
+const publicPath = `http://localhost:${port}/dist`
+const dll = path.resolve(process.cwd(), 'dll')
+const manifest = path.resolve(dll, 'vendor.json')
 
 /**
  * Warn if the DLL is not built
@@ -27,8 +27,8 @@ const manifest = path.resolve(dll, 'vendor.json');
 if (!(fs.existsSync(dll) && fs.existsSync(manifest))) {
   console.log(chalk.black.bgYellow.bold(
     'The DLL files are missing. Sit back while we build them for you with "npm run build-dll"'
-  ));
-  execSync('npm run build-dll');
+  ))
+  execSync('npm run build-dll')
 }
 
 export default merge.smart(baseConfig, {
@@ -187,7 +187,6 @@ export default merge.smart(baseConfig, {
      * https://webpack.js.org/concepts/hot-module-replacement/
      */
     new webpack.HotModuleReplacementPlugin({
-      // @TODO: Waiting on https://github.com/jantimon/html-webpack-plugin/issues/533
       // multiStep: true
     }),
 
@@ -245,8 +244,8 @@ export default merge.smart(baseConfig, {
           { shell: true, env: process.env, stdio: 'inherit' }
         )
         .on('close', code => process.exit(code))
-        .on('error', spawnError => console.error(spawnError));
+        .on('error', spawnError => console.error(spawnError))
       }
     }
   },
-});
+})
