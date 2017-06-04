@@ -1,22 +1,22 @@
 import { app, BrowserWindow } from 'electron'
+import sourceMapSupport from 'source-map-support'
+import path from 'path'
 import MenuBuilder from './menu'
 
 let mainWindow = null
 
 if (process.env.NODE_ENV === 'production') {
-  const sourceMapSupport = require('source-map-support')
   sourceMapSupport.install()
 }
 
 if (process.env.NODE_ENV === 'development' || process.env.DEBUG_PROD === 'true') {
-  require('electron-debug')()
-  const path = require('path')
+  require('electron-debug')()// eslint-disable-line global-require
   const p = path.join(__dirname, '..', 'app', 'node_modules')
-  require('module').globalPaths.push(p)
+  require('module').globalPaths.push(p)// eslint-disable-line global-require
 }
 
 const installExtensions = async () => {
-  const installer = require('electron-devtools-installer')
+  const installer = require('electron-devtools-installer')// eslint-disable-line global-require
   const forceDownload = !!process.env.UPGRADE_EXTENSIONS
   const extensions = [
     'REACT_DEVELOPER_TOOLS',
