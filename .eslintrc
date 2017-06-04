@@ -10,6 +10,7 @@
     "node": true
   },
   "rules": {
+    "semi": [ 2, "never"],
     "arrow-parens": ["off"],
     "compat/compat": "error",
     "consistent-return": "off",
