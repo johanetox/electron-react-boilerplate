@@ -72,33 +72,6 @@ describe('main window', function spec() {
     expect(await findCounter().getText()).toBe('0')
   })
 
-  it('shouldnt change if even and if odd button clicked', async () => {
-    const { client } = this.app
-
-    const buttons = await findButtons()
-    await client.elementIdClick(buttons[2])  // odd
-    expect(await findCounter().getText()).toBe('0')
-  })
-
-  it('should change if odd and if odd button clicked', async () => {
-    const { client } = this.app
-
-    const buttons = await findButtons()
-    await client.elementIdClick(buttons[0])  // +
-    await client.elementIdClick(buttons[2])  // odd
-    expect(await findCounter().getText()).toBe('2')
-  })
-
-  it('should change if async button clicked and a second later', async () => {
-    const { client } = this.app
-
-    const buttons = await findButtons()
-    await client.elementIdClick(buttons[3])  // async
-    expect(await findCounter().getText()).toBe('2')
-    await delay(1000)
-    expect(await findCounter().getText()).toBe('3')
-  })
-
   it('should back to home if back button clicked', async () => {
     const { client } = this.app
     await client.element(

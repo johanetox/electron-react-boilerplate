@@ -3,14 +3,12 @@ import React from 'react'
 import { shallow } from 'enzyme'
 import { BrowserRouter as Router } from 'react-router-dom'
 import renderer from 'react-test-renderer'
-import Counter from '../../app/components/Counter'
+import Counter from '../../app/components/counter/counter'
 
 function setup() {
   const actions = {
-    increment: spy(),
-    incrementIfOdd: spy(),
-    incrementAsync: spy(),
-    decrement: spy()
+    incrementCounter: spy(),
+    decrementCounter: spy()
   }
   const component = shallow(<Counter counter={1} {...actions} />)
   return {
@@ -30,7 +28,7 @@ describe('Counter component', () => {
   it('should first button should call increment', () => {
     const { buttons, actions } = setup()
     buttons.at(0).simulate('click')
-    expect(actions.increment.called).toBe(true)
+    expect(actions.incrementCounter.called).toBe(true)
   })
 
   it('should match exact snapshot', () => {
@@ -51,18 +49,6 @@ describe('Counter component', () => {
   it('should second button should call decrement', () => {
     const { buttons, actions } = setup()
     buttons.at(1).simulate('click')
-    expect(actions.decrement.called).toBe(true)
-  })
-
-  it('should third button should call incrementIfOdd', () => {
-    const { buttons, actions } = setup()
-    buttons.at(2).simulate('click')
-    expect(actions.incrementIfOdd.called).toBe(true)
-  })
-
-  it('should fourth button should call incrementAsync', () => {
-    const { buttons, actions } = setup()
-    buttons.at(3).simulate('click')
-    expect(actions.incrementAsync.called).toBe(true)
+    expect(actions.decrementCounter.called).toBe(true)
   })
 })
