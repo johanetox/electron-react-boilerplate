@@ -1,8 +1,8 @@
 {
-  "name": "electron-react-boilerplate",
-  "productName": "ElectronReact",
-  "version": "0.12.0",
-  "description": "Electron application boilerplate based on React, React Router, Webpack, React Hot Loader for rapid application development",
+  "name": "electron-react-sagas-starter",
+  "productName": "ElectronReact-sagas",
+  "version": "0.0.1",
+  "description": "Electron starter kit based on React, React redux, Redux Saga, React Router, Immutable, stateless, Webpack 2, React Hot Loader for rapid development",
   "scripts": {
     "test": "cross-env NODE_ENV=test BABEL_DISABLE_CACHE=1 node --trace-warnings ./test/runTests.js",
     "test-all": "npm run lint && npm run flow && npm run test && npm run build && npm run test-e2e",
@@ -73,16 +73,23 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/chentsulin/electron-react-boilerplate.git"
+    "url": "git+https://github.com/Liftitapp/electron-react-sagas-starter.git"
   },
   "author": {
-    "name": "C. T. Lin",
-    "email": "chentsulin@gmail.com",
-    "url": "https://github.com/chentsulin"
+    "name": "Liftit",
+    "email": "dev@liftit.co",
+    "url": "https://github.com/Liftitapp"
   },
+  "contributors" : [
+    {
+      "name": "Johan Méndez",
+      "email": "punkeneto1@gmail.com",
+      "url": "https://github.com/johanetox"
+    }
+  ],
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/chentsulin/electron-react-boilerplate/issues"
+    "url": "https://github.com/Liftitapp/electron-react-sagas-starter/issues"
   },
   "keywords": [
     "electron",
@@ -95,7 +102,7 @@
     "hot",
     "reload"
   ],
-  "homepage": "https://github.com/chentsulin/electron-react-boilerplate#readme",
+  "homepage": "https://github.com/Liftitapp/electron-react-sagas-starter#readme",
   "jest": {
     "moduleNameMapper": {
       "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/internals/mocks/fileMock.js",
