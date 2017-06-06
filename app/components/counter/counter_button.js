@@ -1,18 +1,16 @@
-import React, { PropTypes } from 'react'
+// @flow
+import React from 'react'
 import styles from './counter.css'
 
-const CounterButton = ({ onClick, counterIcon }) => (
+type Props = {
+  onClick: () => void,
+  counterIcon: string
+};
+
+const CounterButton = ({ onClick, counterIcon }: Props) => (
   <button className={styles.btn} onClick={onClick} data-tclass='btn'>
     <i className={`fa ${counterIcon}`} />
   </button>
 )
 
-CounterButton.propTypes = {
-  onClick: PropTypes.func,
-  counterIcon: PropTypes.string
-}
-CounterButton.defaultProps = {
-  onClick: () => {},
-  counterIcon: ''
-}
 export default CounterButton
